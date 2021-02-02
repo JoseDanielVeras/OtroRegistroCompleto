@@ -36,8 +36,6 @@ namespace OtroRegistroCompleto
             this.ConfirmarMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.ClaveMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.NivelLabel = new System.Windows.Forms.Label();
-            this.CostoXHoraTextBox = new System.Windows.Forms.TextBox();
-            this.CostoXHoraLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.NombresTextBox = new System.Windows.Forms.TextBox();
@@ -74,11 +72,10 @@ namespace OtroRegistroCompleto
             this.RolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RolComboBox.FormattingEnabled = true;
             this.RolComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
+            "Administrador",
+            "Estudiante",
+            "Contable",
+            "Usuario"});
             this.RolComboBox.Location = new System.Drawing.Point(536, 68);
             this.RolComboBox.Name = "RolComboBox";
             this.RolComboBox.Size = new System.Drawing.Size(121, 23);
@@ -87,7 +84,7 @@ namespace OtroRegistroCompleto
             // 
             // ConfirmarMaskedTextBox
             // 
-            this.ConfirmarMaskedTextBox.Location = new System.Drawing.Point(336, 149);
+            this.ConfirmarMaskedTextBox.Location = new System.Drawing.Point(329, 149);
             this.ConfirmarMaskedTextBox.Name = "ConfirmarMaskedTextBox";
             this.ConfirmarMaskedTextBox.PasswordChar = '*';
             this.ConfirmarMaskedTextBox.Size = new System.Drawing.Size(113, 23);
@@ -110,23 +107,6 @@ namespace OtroRegistroCompleto
             this.NivelLabel.Size = new System.Drawing.Size(31, 20);
             this.NivelLabel.TabIndex = 31;
             this.NivelLabel.Text = "Rol";
-            // 
-            // CostoXHoraTextBox
-            // 
-            this.CostoXHoraTextBox.Location = new System.Drawing.Point(557, 148);
-            this.CostoXHoraTextBox.Name = "CostoXHoraTextBox";
-            this.CostoXHoraTextBox.Size = new System.Drawing.Size(100, 23);
-            this.CostoXHoraTextBox.TabIndex = 30;
-            // 
-            // CostoXHoraLabel
-            // 
-            this.CostoXHoraLabel.AutoSize = true;
-            this.CostoXHoraLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CostoXHoraLabel.Location = new System.Drawing.Point(455, 149);
-            this.CostoXHoraLabel.Name = "CostoXHoraLabel";
-            this.CostoXHoraLabel.Size = new System.Drawing.Size(97, 20);
-            this.CostoXHoraLabel.TabIndex = 29;
-            this.CostoXHoraLabel.Text = "Costo X Hora";
             // 
             // EmailLabel
             // 
@@ -272,7 +252,7 @@ namespace OtroRegistroCompleto
             // 
             this.FechaIngresoLabel.AutoSize = true;
             this.FechaIngresoLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FechaIngresoLabel.Location = new System.Drawing.Point(257, 69);
+            this.FechaIngresoLabel.Location = new System.Drawing.Point(444, 151);
             this.FechaIngresoLabel.Name = "FechaIngresoLabel";
             this.FechaIngresoLabel.Size = new System.Drawing.Size(100, 20);
             this.FechaIngresoLabel.TabIndex = 41;
@@ -280,7 +260,7 @@ namespace OtroRegistroCompleto
             // 
             // IngresoDateTimePicker
             // 
-            this.IngresoDateTimePicker.Location = new System.Drawing.Point(362, 68);
+            this.IngresoDateTimePicker.Location = new System.Drawing.Point(553, 148);
             this.IngresoDateTimePicker.Name = "IngresoDateTimePicker";
             this.IngresoDateTimePicker.Size = new System.Drawing.Size(104, 23);
             this.IngresoDateTimePicker.TabIndex = 42;
@@ -306,8 +286,6 @@ namespace OtroRegistroCompleto
             this.Controls.Add(this.ConfirmarMaskedTextBox);
             this.Controls.Add(this.ClaveMaskedTextBox);
             this.Controls.Add(this.NivelLabel);
-            this.Controls.Add(this.CostoXHoraTextBox);
-            this.Controls.Add(this.CostoXHoraLabel);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NombresTextBox);
@@ -333,8 +311,6 @@ namespace OtroRegistroCompleto
         private System.Windows.Forms.MaskedTextBox ConfirmarMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox ClaveMaskedTextBox;
         private System.Windows.Forms.Label NivelLabel;
-        private System.Windows.Forms.TextBox CostoXHoraTextBox;
-        private System.Windows.Forms.Label CostoXHoraLabel;
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox NombresTextBox;

@@ -125,12 +125,6 @@ namespace OtroRegistroCompleto
                 Paso = true;
             }
 
-            if (CostoXHoraTextBox.Text == "")
-            {
-                errorProvider1.SetError(CostoXHoraTextBox, "Obligatorio");
-                Paso = true;
-            }
-
             if (RolComboBox.Text == "")
             {
                 errorProvider1.SetError(RolComboBox, "Obligatorio");
@@ -152,10 +146,8 @@ namespace OtroRegistroCompleto
             NombresTextBox.Text = "";
             ClaveMaskedTextBox.Text = "";
             ConfirmarMaskedTextBox.Text = "";
-            CostoXHoraTextBox.Text = "";
             EmailTextBox.Text = "";
             RolComboBox.Text = "";
-            CostoXHoraTextBox.Text = "";
             IngresoDateTimePicker.Value = DateTime.Now;
             errorProvider1.Clear();
         }
@@ -181,7 +173,7 @@ namespace OtroRegistroCompleto
                     usuarios.Clave = ClaveMaskedTextBox.Text;
                     usuarios.FechaIngreso = IngresoDateTimePicker.Value;
                     usuarios.Activo = ActivoCheckBox.Checked;
-                    usuarios.RolId = Convert.ToInt32(RolComboBox.Text);
+                    usuarios.RolId = RolComboBox.Text;
                     contexto.Usuarios.Add(usuarios);
                     contexto.SaveChanges();
                     contexto.Dispose();
@@ -198,7 +190,7 @@ namespace OtroRegistroCompleto
                     usuarios.Clave = ClaveMaskedTextBox.Text;
                     usuarios.FechaIngreso = IngresoDateTimePicker.Value;
                     contexto.Usuarios.Add(usuarios);
-                    usuarios.RolId = Convert.ToInt32(RolComboBox.Text);
+                    usuarios.RolId = RolComboBox.Text;
                     contexto.SaveChanges();
                     contexto.Dispose();
                     errorProvider1.Clear();

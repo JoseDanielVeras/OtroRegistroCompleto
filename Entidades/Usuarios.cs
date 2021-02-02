@@ -14,7 +14,7 @@ namespace OtroRegistroCompleto.Entidades
         public string Nombres { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
-        public int RolId { get; set; }
+        public string RolId { get; set; }
         public bool Activo { get; set; }
 
         public Usuarios()
@@ -25,7 +25,7 @@ namespace OtroRegistroCompleto.Entidades
             Nombres = string.Empty;
             Email = string.Empty;
             Clave = string.Empty;
-            RolId = 0;
+            RolId = string.Empty;
             Activo = true;
         }
     }
