@@ -23,7 +23,7 @@ namespace OtroRegistroCompleto
 
         void Limpiar()
         {
-            IdTextBox.Clear();
+            IdNumericUpDown.Value = 0;
             AliasTextBox.Clear();
             NombresTextBox.Clear();
             ClaveMaskedTextBox.Clear();
@@ -108,9 +108,9 @@ namespace OtroRegistroCompleto
         //Esta funcion reficia todo todos lo campos del formulario
         void Validar(ref bool Paso)
         {
-            if (IdTextBox.Text == "")
+            if (IdNumericUpDown.Value == 0)
             {
-                errorProvider1.SetError(IdTextBox, "Obligatorio");
+                errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
                 Paso = true;
             }
 
@@ -168,10 +168,10 @@ namespace OtroRegistroCompleto
             if (!Paso)
             {
                 //Si el usuario exite lo modifica, sino lo agrega.
-                if (BuscarUsuario(Convert.ToInt32(IdTextBox.Text)))
+                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
                 {
-                    Eliminar(Convert.ToInt32(IdTextBox.Text));
-                    usuarios.UsuarioId = Convert.ToInt32(IdTextBox.Text);
+                    Eliminar(Convert.ToInt32(IdNumericUpDown.Value));
+                    usuarios.UsuarioId = Convert.ToInt32(IdNumericUpDown.Value);
                     usuarios.Alias = AliasTextBox.Text;
                     usuarios.Nombres = NombresTextBox.Text;
                     usuarios.Email = EmailTextBox.Text;
@@ -187,7 +187,7 @@ namespace OtroRegistroCompleto
                 }
                 else
                 {
-                    usuarios.UsuarioId = Convert.ToInt32(IdTextBox.Text);
+                    usuarios.UsuarioId = Convert.ToInt32(IdNumericUpDown.Value);
                     usuarios.Email = EmailTextBox.Text;
                     usuarios.Activo = ActivoCheckBox.Checked;
                     usuarios.Alias = AliasTextBox.Text;
@@ -207,15 +207,15 @@ namespace OtroRegistroCompleto
         //Esta funcion elimina usiarios
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (IdTextBox.Text == "")
+            if (IdNumericUpDown.Value == 0)
             {
-                errorProvider1.SetError(IdTextBox, "Obligatorio");
+                errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
             }
             else
             {
-                if (BuscarUsuario(Convert.ToInt32(IdTextBox.Text)))
+                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
                 {
-                    Eliminar(Convert.ToInt32(IdTextBox.Text));
+                    Eliminar(Convert.ToInt32(IdNumericUpDown.Value));
                     MessageBox.Show("Usuario Eliminado.");
                 }
                 else
@@ -230,16 +230,16 @@ namespace OtroRegistroCompleto
             Contexto contexto = new Contexto();
             Resultados ventana = new Resultados();
             contexto.Dispose();
-
-            if (IdTextBox.Text == "")
+            
+            if (IdNumericUpDown.Value == 0)
             {
-                errorProvider1.SetError(IdTextBox, "Obligatorio");
+                errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
             }
             else
             {
-                if (BuscarUsuario(Convert.ToInt32(IdTextBox.Text)))
+                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
                 {
-                    usuarios = Buscar(Convert.ToInt32(IdTextBox.Text));
+                    usuarios = Buscar(Convert.ToInt32(IdNumericUpDown.Value));
                     ventana.ResultadoIdTextBox.Text = Convert.ToString(usuarios.UsuarioId);
                     ventana.ResultadoAliasTextBox.Text = usuarios.Alias;
                     ventana.ResultadoNombresTextBox.Text = usuarios.Nombres;

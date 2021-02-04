@@ -40,7 +40,6 @@ namespace OtroRegistroCompleto
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.NombresTextBox = new System.Windows.Forms.TextBox();
             this.AliasTextBox = new System.Windows.Forms.TextBox();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmarClaveLabel = new System.Windows.Forms.Label();
             this.CalveLabel = new System.Windows.Forms.Label();
             this.NombresLabel = new System.Windows.Forms.Label();
@@ -53,7 +52,9 @@ namespace OtroRegistroCompleto
             this.FechaIngresoLabel = new System.Windows.Forms.Label();
             this.IngresoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // ActivoCheckBox
@@ -138,13 +139,6 @@ namespace OtroRegistroCompleto
             this.AliasTextBox.Name = "AliasTextBox";
             this.AliasTextBox.Size = new System.Drawing.Size(131, 23);
             this.AliasTextBox.TabIndex = 25;
-            // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Location = new System.Drawing.Point(94, 28);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(100, 23);
-            this.IdTextBox.TabIndex = 24;
             // 
             // ConfirmarClaveLabel
             // 
@@ -231,7 +225,7 @@ namespace OtroRegistroCompleto
             // BuscarButton
             // 
             this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
-            this.BuscarButton.Location = new System.Drawing.Point(200, 27);
+            this.BuscarButton.Location = new System.Drawing.Point(220, 28);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(25, 25);
             this.BuscarButton.TabIndex = 39;
@@ -269,11 +263,19 @@ namespace OtroRegistroCompleto
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // IdNumericUpDown
+            // 
+            this.IdNumericUpDown.Location = new System.Drawing.Point(94, 30);
+            this.IdNumericUpDown.Name = "IdNumericUpDown";
+            this.IdNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.IdNumericUpDown.TabIndex = 43;
+            // 
             // RegistroUsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 299);
+            this.Controls.Add(this.IdNumericUpDown);
             this.Controls.Add(this.IngresoDateTimePicker);
             this.Controls.Add(this.FechaIngresoLabel);
             this.Controls.Add(this.IdLabel);
@@ -290,7 +292,6 @@ namespace OtroRegistroCompleto
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NombresTextBox);
             this.Controls.Add(this.AliasTextBox);
-            this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.ConfirmarClaveLabel);
             this.Controls.Add(this.CalveLabel);
             this.Controls.Add(this.NombresLabel);
@@ -299,6 +300,7 @@ namespace OtroRegistroCompleto
             this.Name = "RegistroUsuariosForm";
             this.Text = "Registro de Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,7 +317,6 @@ namespace OtroRegistroCompleto
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox NombresTextBox;
         private System.Windows.Forms.TextBox AliasTextBox;
-        private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label ConfirmarClaveLabel;
         private System.Windows.Forms.Label CalveLabel;
         private System.Windows.Forms.Label NombresLabel;
@@ -328,6 +329,7 @@ namespace OtroRegistroCompleto
         private System.Windows.Forms.Label FechaIngresoLabel;
         private System.Windows.Forms.DateTimePicker IngresoDateTimePicker;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.NumericUpDown IdNumericUpDown;
     }
 }
 
