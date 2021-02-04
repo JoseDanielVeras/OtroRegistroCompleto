@@ -21,6 +21,19 @@ namespace OtroRegistroCompleto
             IngresoDateTimePicker.CustomFormat = "dd/MM/yyyy";
         }
 
+        void Limpiar()
+        {
+            IdTextBox.Clear();
+            AliasTextBox.Clear();
+            NombresTextBox.Clear();
+            ClaveMaskedTextBox.Clear();
+            ConfirmarMaskedTextBox.Clear();
+            EmailTextBox.Clear();
+            RolComboBox.Text = "";
+            IngresoDateTimePicker.Value = DateTime.Now;
+            errorProvider1.Clear();
+        }
+
         //Esta funcion es para verificar si el Id ya existe y guardar
         public static bool BuscarUsuario(int id)
         {
@@ -141,15 +154,7 @@ namespace OtroRegistroCompleto
         //El boton Nuevo limpia los campos y los errores.
         private void NuevoButton_Click(object sender, EventArgs e)
         {
-            IdTextBox.Text = "";
-            AliasTextBox.Text = "";
-            NombresTextBox.Text = "";
-            ClaveMaskedTextBox.Text = "";
-            ConfirmarMaskedTextBox.Text = "";
-            EmailTextBox.Text = "";
-            RolComboBox.Text = "";
-            IngresoDateTimePicker.Value = DateTime.Now;
-            errorProvider1.Clear();
+            Limpiar();
         }
 
         //Esta funcino tiene doble funcionalidad, esta puede modificar y guardar usuarios.
