@@ -1,4 +1,5 @@
-﻿using OtroRegistroCompleto.DAL;
+﻿using OtroRegistroCompleto.BLL;
+using OtroRegistroCompleto.DAL;
 using OtroRegistroCompleto.Entidades;
 using System;
 using System.Collections.Generic;
@@ -34,80 +35,46 @@ namespace OtroRegistroCompleto
             errorProvider1.Clear();
         }
 
-        //Esta funcion es para verificar si el Id ya existe y guardar
-        public static bool BuscarUsuario(int id)
+        private Usuarios LlenarClase()
         {
-            Contexto contexto = new Contexto();
-            bool existe = false;
+            Usuarios usuarios = new Usuarios();
 
-            try
-            {
-                existe = contexto.Usuarios.Any(e => e.UsuarioId == id);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return existe;
-        }
-
-        //El liminar borra entidades atraves del boton eliminar.
-        public static bool Eliminar(int id)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                var usuarios = contexto.Usuarios.Find(id);
-
-                if (usuarios != null)
-                {
-                    contexto.Usuarios.Remove(usuarios);
-                    paso = contexto.SaveChanges() > 0;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return paso;
-        }
-
-        //Esta funcion busca un usuario
-        public static Usuarios Buscar(int id)
-        {
-            Contexto contexto = new Contexto();
-            Usuarios usuarios;
-
-            try
-            {
-                usuarios = contexto.Usuarios.Find(id);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
+            usuarios.UsuarioId = Convert.ToInt32(IdNumericUpDown.Value);
+            usuarios.Alias = AliasTextBox.Text;
+            usuarios.Email = EmailTextBox.Text;
+            usuarios.Clave = ClaveMaskedTextBox.Text;
+            usuarios.FechaIngreso = IngresoDateTimePicker.Value;
+            usuarios.Activo = ActivoCheckBox.Checked;
+            usuarios.Nombres = NombresTextBox.Text;
+            //usuarios.Rol = rolComboBox.Text;
 
             return usuarios;
         }
 
-        //Esta funcion reficia todo todos lo campos del formulario
-        void Validar(ref bool Paso)
+        private void LlenarCampos(Usuarios usuarios)
         {
+            IdNumericUpDown.Value = usuarios.UsuarioId;
+            NombresTextBox.Text = usuarios.Nombres;
+            AliasTextBox.Text = usuarios.Alias;
+            EmailTextBox.Text = usuarios.Email;
+            ConfirmarMaskedTextBox.Text = usuarios.Clave;
+            IngresoDateTimePicker.Value = usuarios.FechaIngreso;
+            ClaveMaskedTextBox.Text = usuarios.Clave;
+            ActivoCheckBox.Checked = usuarios.Activo;
+        }
+
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Usuarios usuarios = UsuarioBLL.Buscar((int)IdNumericUpDown.Value);
+            return (usuarios != null);
+        }
+
+        //Esta funcion reficia todo todos lo campos del formulario
+        private bool Validar()
+        {
+            bool Paso = true;
+            errorProvider1.Clear();
+
             if (IdNumericUpDown.Value == 0)
             {
                 errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
@@ -149,6 +116,8 @@ namespace OtroRegistroCompleto
                 errorProvider1.SetError(ConfirmarMaskedTextBox, "La Clave no coincide");
                 Paso = true;
             }
+
+            return Paso;
         }
 
         //El boton Nuevo limpia los campos y los errores.
@@ -160,97 +129,71 @@ namespace OtroRegistroCompleto
         //Esta funcino tiene doble funcionalidad, esta puede modificar y guardar usuarios.
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Contexto contexto = new Contexto();
-            Usuarios usuarios = new Usuarios();
-            bool Paso = false;
+            Usuarios usuarios;
+            bool paso = false;
 
-            Validar(ref Paso);
-            if (!Paso)
+            if (!Validar())
+                return;
+
+            usuarios = LlenarClase();
+
+            //determinar si es guardar o modificar
+            if (IdNumericUpDown.Value != 0)
+                paso = UsuarioBLL.Guardar(usuarios);
+            else
             {
-                //Si el usuario exite lo modifica, sino lo agrega.
-                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
+                if (!ExisteEnLaBaseDeDatos())
                 {
-                    Eliminar(Convert.ToInt32(IdNumericUpDown.Value));
-                    usuarios.UsuarioId = Convert.ToInt32(IdNumericUpDown.Value);
-                    usuarios.Alias = AliasTextBox.Text;
-                    usuarios.Nombres = NombresTextBox.Text;
-                    usuarios.Email = EmailTextBox.Text;
-                    usuarios.Clave = ClaveMaskedTextBox.Text;
-                    usuarios.FechaIngreso = IngresoDateTimePicker.Value;
-                    usuarios.Activo = ActivoCheckBox.Checked;
-                    usuarios.RolId = RolComboBox.Text;
-                    contexto.Usuarios.Add(usuarios);
-                    contexto.SaveChanges();
-                    contexto.Dispose();
-                    errorProvider1.Clear();
-                    MessageBox.Show("Usuario Modificado.");
+                    MessageBox.Show("No se puede modificar un usuario que no existe");
+                    return;
                 }
-                else
-                {
-                    usuarios.UsuarioId = Convert.ToInt32(IdNumericUpDown.Value);
-                    usuarios.Email = EmailTextBox.Text;
-                    usuarios.Activo = ActivoCheckBox.Checked;
-                    usuarios.Alias = AliasTextBox.Text;
-                    usuarios.Nombres = NombresTextBox.Text;
-                    usuarios.Clave = ClaveMaskedTextBox.Text;
-                    usuarios.FechaIngreso = IngresoDateTimePicker.Value;
-                    contexto.Usuarios.Add(usuarios);
-                    usuarios.RolId = RolComboBox.Text;
-                    contexto.SaveChanges();
-                    contexto.Dispose();
-                    errorProvider1.Clear();
-                    MessageBox.Show("Usuario Agregado.");
-                }
+                paso = UsuarioBLL.Modificar(usuarios);
             }
+
+            //Informar el resultado
+            if (paso)
+            {
+                MessageBox.Show("Se ha guardado correctamente");
+            }
+            else
+                MessageBox.Show("No fue posible guardar");
         }
 
         //Esta funcion elimina usiarios
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            if (IdNumericUpDown.Value == 0)
-            {
-                errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
-            }
+            errorProvider1.Clear();
+
+            int id;
+            int.TryParse(IdNumericUpDown.Text, out id);
+
+            Limpiar();
+
+            if (UsuarioBLL.Eliminar(id))
+                MessageBox.Show("Usuario eliminado");
             else
-            {
-                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
-                {
-                    Eliminar(Convert.ToInt32(IdNumericUpDown.Value));
-                    MessageBox.Show("Usuario Eliminado.");
-                }
-                else
-                    MessageBox.Show("Este Usuario No Existe.");
-            }
+                errorProvider1.SetError(IdNumericUpDown, "Este usuario no existe");
         }
 
         //Esta funcion busca un usuario con su id.
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            int id;
             Usuarios usuarios = new Usuarios();
-            Contexto contexto = new Contexto();
-            contexto.Dispose();
-            
-            if (IdNumericUpDown.Value == 0)
+            int.TryParse(IdNumericUpDown.Text, out id);
+
+            Limpiar();
+
+            usuarios = UsuarioBLL.Buscar(id);
+
+            if (usuarios != null)
             {
-                errorProvider1.SetError(IdNumericUpDown, "Obligatorio");
+                MessageBox.Show("Usuario encontrado");
+                LlenarCampos(usuarios);
             }
             else
             {
-                if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
-                {
-
-                    usuarios = Buscar(Convert.ToInt32(IdNumericUpDown.Value));
-                    AliasTextBox.Text = usuarios.Alias;
-                    NombresTextBox.Text = usuarios.Nombres;
-                    ActivoCheckBox.Checked = usuarios.Activo;
-                    EmailTextBox.Text = usuarios.Email;
-                    IngresoDateTimePicker.Value = usuarios.FechaIngreso;
-                    RolComboBox.Text = Convert.ToString(usuarios.RolId);
-                }
-                else
-                {
-                    MessageBox.Show("Este Usuario No Existe.");
-                }
+                MessageBox.Show("Usuario no encontrado");
             }
         }
     }

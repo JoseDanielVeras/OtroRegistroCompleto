@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OtroRegistroCompleto.Entidades
 {
-    class Roles
+    public class Roles
     {
         [Key]
         public int RolId { get; set; }
