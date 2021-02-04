@@ -29,6 +29,7 @@ namespace OtroRegistroCompleto.IU.Registros
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroRoles));
             this.IdRolLabel = new System.Windows.Forms.Label();
             this.FechaCreacionLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,9 @@ namespace OtroRegistroCompleto.IU.Registros
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
+            this.RolErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdRolNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RolErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // IdRolLabel
@@ -75,21 +78,21 @@ namespace OtroRegistroCompleto.IU.Registros
             // 
             // IdRolNumericUpDown
             // 
-            this.IdRolNumericUpDown.Location = new System.Drawing.Point(151, 25);
+            this.IdRolNumericUpDown.Location = new System.Drawing.Point(150, 25);
             this.IdRolNumericUpDown.Name = "IdRolNumericUpDown";
             this.IdRolNumericUpDown.Size = new System.Drawing.Size(139, 23);
             this.IdRolNumericUpDown.TabIndex = 3;
             // 
             // FechaCreacionDateTimePicker
             // 
-            this.FechaCreacionDateTimePicker.Location = new System.Drawing.Point(151, 70);
+            this.FechaCreacionDateTimePicker.Location = new System.Drawing.Point(150, 70);
             this.FechaCreacionDateTimePicker.Name = "FechaCreacionDateTimePicker";
             this.FechaCreacionDateTimePicker.Size = new System.Drawing.Size(170, 23);
             this.FechaCreacionDateTimePicker.TabIndex = 4;
             // 
             // DescripcionTextBox
             // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(151, 116);
+            this.DescripcionTextBox.Location = new System.Drawing.Point(150, 116);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(170, 23);
             this.DescripcionTextBox.TabIndex = 5;
@@ -143,6 +146,10 @@ namespace OtroRegistroCompleto.IU.Registros
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
+            // RolErrorProvider
+            // 
+            this.RolErrorProvider.ContainerControl = this;
+            // 
             // RegistroRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -162,6 +169,7 @@ namespace OtroRegistroCompleto.IU.Registros
             this.Name = "RegistroRoles";
             this.Text = "Registro de Roles";
             ((System.ComponentModel.ISupportInitialize)(this.IdRolNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RolErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +187,6 @@ namespace OtroRegistroCompleto.IU.Registros
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.ErrorProvider RolErrorProvider;
     }
 }

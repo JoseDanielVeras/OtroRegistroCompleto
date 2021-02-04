@@ -108,6 +108,7 @@ namespace OtroRegistroCompleto
             this.NivelLabel.Size = new System.Drawing.Size(31, 20);
             this.NivelLabel.TabIndex = 31;
             this.NivelLabel.Text = "Rol";
+            this.NivelLabel.Click += new System.EventHandler(this.NivelLabel_Click);
             // 
             // EmailLabel
             // 

@@ -9,7 +9,7 @@ namespace OtroRegistroCompleto.DAL
     class Contexto : DbContext
     {
         public DbSet<Usuarios> Usuarios { get; set; }
-        public object Roles { get; internal set; }
+        public DbSet<Roles> Roles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

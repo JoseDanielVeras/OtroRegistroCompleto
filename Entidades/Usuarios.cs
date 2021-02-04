@@ -17,9 +17,10 @@ namespace OtroRegistroCompleto.Entidades
         public string Clave { get; set; }
         public string Rol { get; set; }
         public bool Activo { get; set; }
-
+        /*
         public int RolID { get; set; }
         [ForeignKey("RolId")]
         public virtual Roles roles { get; set; }
+        */
     }
 }

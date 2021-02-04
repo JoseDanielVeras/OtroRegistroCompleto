@@ -8,6 +8,20 @@ namespace OtroRegistroCompleto.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FechaCreacion = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RolId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -18,7 +32,7 @@ namespace OtroRegistroCompleto.Migrations
                     Nombres = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Clave = table.Column<string>(type: "TEXT", nullable: true),
-                    RolId = table.Column<string>(type: "TEXT", nullable: true),
+                    Rol = table.Column<string>(type: "TEXT", nullable: true),
                     Activo = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -29,6 +43,9 @@ namespace OtroRegistroCompleto.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Roles");
+
             migrationBuilder.DropTable(
                 name: "Usuarios");
         }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OtroRegistroCompleto.IU.Registros;
 
 namespace OtroRegistroCompleto
 {
@@ -188,13 +189,18 @@ namespace OtroRegistroCompleto
 
             if (usuarios != null)
             {
-                MessageBox.Show("Usuario encontrado");
                 LlenarCampos(usuarios);
             }
             else
             {
                 MessageBox.Show("Usuario no encontrado");
             }
+        }
+
+        private void NivelLabel_Click(object sender, EventArgs e)
+        {
+            RegistroRoles roles = new RegistroRoles();
+            roles.Show();
         }
     }
 }

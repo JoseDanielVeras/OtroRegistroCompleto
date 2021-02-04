@@ -16,6 +16,23 @@ namespace OtroRegistroCompleto.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
+            modelBuilder.Entity("OtroRegistroCompleto.Entidades.Roles", b =>
+                {
+                    b.Property<int>("RolId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("RolId");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("OtroRegistroCompleto.Entidades.Usuarios", b =>
                 {
                     b.Property<int>("UsuarioId")
@@ -40,7 +57,7 @@ namespace OtroRegistroCompleto.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("RolId")
+                    b.Property<string>("Rol")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");
