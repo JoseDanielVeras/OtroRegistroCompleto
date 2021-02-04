@@ -78,21 +78,21 @@ namespace OtroRegistroCompleto.IU.Registros
             // 
             // IdRolNumericUpDown
             // 
-            this.IdRolNumericUpDown.Location = new System.Drawing.Point(150, 25);
+            this.IdRolNumericUpDown.Location = new System.Drawing.Point(151, 25);
             this.IdRolNumericUpDown.Name = "IdRolNumericUpDown";
             this.IdRolNumericUpDown.Size = new System.Drawing.Size(139, 23);
             this.IdRolNumericUpDown.TabIndex = 3;
             // 
             // FechaCreacionDateTimePicker
             // 
-            this.FechaCreacionDateTimePicker.Location = new System.Drawing.Point(150, 70);
+            this.FechaCreacionDateTimePicker.Location = new System.Drawing.Point(151, 70);
             this.FechaCreacionDateTimePicker.Name = "FechaCreacionDateTimePicker";
             this.FechaCreacionDateTimePicker.Size = new System.Drawing.Size(170, 23);
             this.FechaCreacionDateTimePicker.TabIndex = 4;
             // 
             // DescripcionTextBox
             // 
-            this.DescripcionTextBox.Location = new System.Drawing.Point(150, 116);
+            this.DescripcionTextBox.Location = new System.Drawing.Point(151, 116);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(170, 23);
             this.DescripcionTextBox.TabIndex = 5;

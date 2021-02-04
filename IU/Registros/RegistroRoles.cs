@@ -31,17 +31,9 @@ namespace OtroRegistroCompleto.IU.Registros
 
         private bool LLenaCampos(Roles roles)
         {
-            //Roles roles = RolesBLL.Buscar(Convert.ToInt32(IdRolNumericUpDown.Value));
-
-            //if (roles != null)
-            //{
-                //El id no lo llenamos porque ya estaria lleno
-                IdRolNumericUpDown.Value = roles.RolId;
-                DescripcionTextBox.Text = roles.Descripcion;
-                return true;
-           // }
-            //else
-                //return false;
+            IdRolNumericUpDown.Value = roles.RolId;
+            DescripcionTextBox.Text = roles.Descripcion;
+            return true;
         }
 
         private bool ExisteEnBaseDeDatos()
@@ -105,9 +97,7 @@ namespace OtroRegistroCompleto.IU.Registros
             }
 
             if (paso)
-            {
                 MessageBox.Show("Se ha guardado correctamente");
-            }
             else
                 MessageBox.Show("No fue posible guardar");
         }
