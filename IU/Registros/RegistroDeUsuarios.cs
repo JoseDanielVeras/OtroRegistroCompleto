@@ -29,7 +29,7 @@ namespace OtroRegistroCompleto
             ClaveMaskedTextBox.Clear();
             ConfirmarMaskedTextBox.Clear();
             EmailTextBox.Clear();
-            RolComboBox.Text = "";
+            ActivoCheckBox.Checked = false;
             IngresoDateTimePicker.Value = DateTime.Now;
             errorProvider1.Clear();
         }
@@ -228,7 +228,6 @@ namespace OtroRegistroCompleto
         {
             Usuarios usuarios = new Usuarios();
             Contexto contexto = new Contexto();
-            Resultados ventana = new Resultados();
             contexto.Dispose();
             
             if (IdNumericUpDown.Value == 0)
@@ -239,15 +238,14 @@ namespace OtroRegistroCompleto
             {
                 if (BuscarUsuario(Convert.ToInt32(IdNumericUpDown.Value)))
                 {
+
                     usuarios = Buscar(Convert.ToInt32(IdNumericUpDown.Value));
-                    ventana.ResultadoIdTextBox.Text = Convert.ToString(usuarios.UsuarioId);
-                    ventana.ResultadoAliasTextBox.Text = usuarios.Alias;
-                    ventana.ResultadoNombresTextBox.Text = usuarios.Nombres;
-                    ventana.ResultadoActivoCheckBox.Checked = usuarios.Activo;
-                    ventana.ResultadoEmailTextBox.Text = usuarios.Email;
-                    ventana.ResultadoIngresoDateTimePicker.Value = usuarios.FechaIngreso;
-                    ventana.ResultadoRolTextBox.Text = Convert.ToString(usuarios.RolId);
-                    ventana.Show();
+                    AliasTextBox.Text = usuarios.Alias;
+                    NombresTextBox.Text = usuarios.Nombres;
+                    ActivoCheckBox.Checked = usuarios.Activo;
+                    EmailTextBox.Text = usuarios.Email;
+                    IngresoDateTimePicker.Value = usuarios.FechaIngreso;
+                    RolComboBox.Text = Convert.ToString(usuarios.RolId);
                 }
                 else
                 {

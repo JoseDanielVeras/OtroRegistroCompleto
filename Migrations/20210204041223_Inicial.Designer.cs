@@ -9,7 +9,7 @@ using OtroRegistroCompleto.DAL;
 namespace OtroRegistroCompleto.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210201164000_Inicial")]
+    [Migration("20210204041223_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,8 +42,8 @@ namespace OtroRegistroCompleto.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RolId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("RolId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");
 

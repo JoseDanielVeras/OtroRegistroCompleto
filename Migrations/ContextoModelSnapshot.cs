@@ -40,8 +40,8 @@ namespace OtroRegistroCompleto.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RolId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("RolId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");
 
