@@ -1,3 +1,4 @@
+using OtroRegistroCompleto.IU.Registros.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace OtroRegistroCompleto
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegistroUsuariosForm());
+            Application.Run(new MainFrom()); //Eso lo que hace es que cuando se ejecute el programa la ventana MainForm se ejecute primero
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace OtroRegistroCompleto.IU.Registros.Menu
 {
-    partial class Menu
+    partial class MainFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace OtroRegistroCompleto.IU.Registros.Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
             this.RegistroRolesButton = new System.Windows.Forms.Button();
             this.RegistrosUsuariosButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace OtroRegistroCompleto.IU.Registros.Menu
             this.label1.TabIndex = 3;
             this.label1.Text = "Seleccione El Registro Que Desea";
             // 
-            // Menu
+            // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -77,8 +77,8 @@ namespace OtroRegistroCompleto.IU.Registros.Menu
             this.Controls.Add(this.RegistrosUsuariosButton);
             this.Controls.Add(this.RegistroRolesButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Menu";
-            this.Text = "Menu";
+            this.Name = "MainFrom";
+            this.Text = "MainForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

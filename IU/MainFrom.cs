@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OtroRegistroCompleto.IU.Registros.Menu
 {
-    public partial class Menu : Form
+    public partial class MainFrom : Form
     {
-        public Menu()
+        public MainFrom()
         {
             InitializeComponent();
         }
@@ -25,7 +25,8 @@ namespace OtroRegistroCompleto.IU.Registros.Menu
 
         private void RegistrosUsuariosButton_Click(object sender, EventArgs e)
         {
-            
+            RegistroUsuariosForm registroUsuariosForm = new RegistroUsuariosForm();
+            registroUsuariosForm.Show();
         }
     }
 }
