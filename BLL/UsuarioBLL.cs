@@ -88,6 +88,7 @@ namespace OtroRegistroCompleto.BLL
 
             try
             {
+
                 contexto.Usuarios.Add(usuarios);
                 paso = contexto.SaveChanges() > 0;
 
