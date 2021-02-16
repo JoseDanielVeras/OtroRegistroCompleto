@@ -15,12 +15,8 @@ namespace OtroRegistroCompleto.Entidades
         public string Nombres { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
-        public string Rol { get; set; }
         public bool Activo { get; set; }
         
-        public int RolID { get; set; }
-        [ForeignKey("RolId")]
-        public virtual Roles roles { get; set; }
-        
+        public int RolId { get; set; }
     }
 }
