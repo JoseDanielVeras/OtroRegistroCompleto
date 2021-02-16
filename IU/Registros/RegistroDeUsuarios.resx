@@ -57,7 +57,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="NuevoButton.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -84,7 +84,7 @@
   <data name="GuardarButton.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAA2BJREFUWEfVl0tPU0EcxdvaFgSklFcJpFiiGyUBgiD4gIiFCqXlkdCyBGokMYYE
+        vAAADrwBlbxySQAAA2BJREFUWEfVl0tPU0EcxdvaFgSklFcJpFiiGyUBgiD4gIiFCqXlkdCyBGokMYYE
         XSgVFpaV7GQLkR0bNm4KlY9AgE8AJPAVTIzyKMc5M4BUL5S214X/5GQ6zf3/zrnTubcZw0kVC30xGk1x
         k+kafssEo9EIi8UCq9WqKbPZDIPBKK/nyDm/Zw97xXffBfujUA6NLqr+7Ot5B3WNXtx/HBQKoKkliOq6
         dthsdszOfsLKygqi0WiCYrEYxsbGkJNnR22DV46cr66uyh5bgR03b9VDsH8Ijw9C2dJNo57b7GXo6n+D
@@ -104,7 +104,7 @@
   <data name="EliminarButton.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAVpJREFUWEftl8FKw0AQhj3kkbT2atWnMB489eCLtD1VX019AvEiKBY2BJOUcf5J
+        vAAADrwBlbxySQAAAVpJREFUWEftl8FKw0AQhj3kkbT2atWnMB489eCLtD1VX019AvEiKBY2BJOUcf5J
         V5J0wFGajIUePlh2p/t/s2kb9iicjxLminliKoZ6BhnISpkEAhi8MlpxnyAzhcBjY3JoHiBQdiaHpISA
         tjAYB4E9Ejg7rtHWmljrNtgELsaUTa8pu72hcDmmMDnZrsEcr6Emm6byma0ahZ8FuBts+PnyTMX7G+XL
         OW9+2pbAmOfy5UxqUCsShpOwCXBX2LhYr6lYrdoS3+FzWZMarpXT2okA4KOV7mJAU6IbHtfwqLS9OtgE

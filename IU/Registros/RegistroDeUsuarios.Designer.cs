@@ -35,7 +35,6 @@ namespace OtroRegistroCompleto
             this.RolComboBox = new System.Windows.Forms.ComboBox();
             this.ConfirmarMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.ClaveMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.NivelLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.NombresTextBox = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@ namespace OtroRegistroCompleto
             this.IngresoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -73,10 +73,7 @@ namespace OtroRegistroCompleto
             this.RolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RolComboBox.FormattingEnabled = true;
             this.RolComboBox.Items.AddRange(new object[] {
-            "Administrador",
-            "Estudiante",
-            "Contable",
-            "Usuario"});
+            "Holaaaa"});
             this.RolComboBox.Location = new System.Drawing.Point(536, 68);
             this.RolComboBox.Name = "RolComboBox";
             this.RolComboBox.Size = new System.Drawing.Size(121, 23);
@@ -99,17 +96,6 @@ namespace OtroRegistroCompleto
             this.ClaveMaskedTextBox.Size = new System.Drawing.Size(115, 23);
             this.ClaveMaskedTextBox.TabIndex = 32;
             // 
-            // NivelLabel
-            // 
-            this.NivelLabel.AutoSize = true;
-            this.NivelLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NivelLabel.Location = new System.Drawing.Point(499, 68);
-            this.NivelLabel.Name = "NivelLabel";
-            this.NivelLabel.Size = new System.Drawing.Size(31, 20);
-            this.NivelLabel.TabIndex = 31;
-            this.NivelLabel.Text = "Rol";
-            this.NivelLabel.Click += new System.EventHandler(this.NivelLabel_Click);
-            // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
@@ -131,7 +117,7 @@ namespace OtroRegistroCompleto
             // 
             this.NombresTextBox.Location = new System.Drawing.Point(94, 111);
             this.NombresTextBox.Name = "NombresTextBox";
-            this.NombresTextBox.Size = new System.Drawing.Size(237, 23);
+            this.NombresTextBox.Size = new System.Drawing.Size(236, 23);
             this.NombresTextBox.TabIndex = 26;
             // 
             // AliasTextBox
@@ -271,11 +257,22 @@ namespace OtroRegistroCompleto
             this.IdNumericUpDown.Size = new System.Drawing.Size(120, 23);
             this.IdNumericUpDown.TabIndex = 43;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(499, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 20);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Rol";
+            // 
             // RegistroUsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 299);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.IdNumericUpDown);
             this.Controls.Add(this.IngresoDateTimePicker);
             this.Controls.Add(this.FechaIngresoLabel);
@@ -288,7 +285,6 @@ namespace OtroRegistroCompleto
             this.Controls.Add(this.RolComboBox);
             this.Controls.Add(this.ConfirmarMaskedTextBox);
             this.Controls.Add(this.ClaveMaskedTextBox);
-            this.Controls.Add(this.NivelLabel);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NombresTextBox);
@@ -300,6 +296,7 @@ namespace OtroRegistroCompleto
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistroUsuariosForm";
             this.Text = "Registro de Usuarios";
+            this.Load += new System.EventHandler(this.RegistroUsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
@@ -313,7 +310,6 @@ namespace OtroRegistroCompleto
         private System.Windows.Forms.ComboBox RolComboBox;
         private System.Windows.Forms.MaskedTextBox ConfirmarMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox ClaveMaskedTextBox;
-        private System.Windows.Forms.Label NivelLabel;
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox NombresTextBox;
@@ -331,6 +327,7 @@ namespace OtroRegistroCompleto
         private System.Windows.Forms.DateTimePicker IngresoDateTimePicker;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.NumericUpDown IdNumericUpDown;
+        private System.Windows.Forms.Label label1;
     }
 }
 

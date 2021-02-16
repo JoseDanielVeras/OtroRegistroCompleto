@@ -29,11 +29,20 @@ namespace OtroRegistroCompleto.IU.Registros
             return roles;
         }
 
-        private bool LLenaCampos(Roles roles)
+        private bool LLenaCampos(int id)
         {
-            IdRolNumericUpDown.Value = roles.RolId;
-            DescripcionTextBox.Text = roles.Descripcion;
-            return true;
+            Roles roles = RolesBLL.Buscar(id);
+
+            if (roles != null)
+            {
+                IdRolNumericUpDown.Value = roles.RolId;
+                DescripcionTextBox.Text = roles.Descripcion;
+                FechaCreacionDateTimePicker.Value = roles.FechaCreacion;
+                return true;
+            }
+            else
+                return false;
+            
         }
 
         private bool ExisteEnBaseDeDatos()
@@ -84,7 +93,10 @@ namespace OtroRegistroCompleto.IU.Registros
 
             //Determinar si es guardar o modificar
             if (IdRolNumericUpDown.Value != 0)
+            {
                 paso = RolesBLL.Guardar(roles);
+                MessageBox.Show("Se ha guardado correctamente");
+            }
             else
             {
                 if (!ExisteEnBaseDeDatos())
@@ -95,11 +107,6 @@ namespace OtroRegistroCompleto.IU.Registros
                 paso = RolesBLL.Modificar(roles);
 
             }
-
-            if (paso)
-                MessageBox.Show("Se ha guardado correctamente");
-            else
-                MessageBox.Show("No fue posible guardar");
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
@@ -118,18 +125,14 @@ namespace OtroRegistroCompleto.IU.Registros
         {
             int id;
             Roles roles = new Roles();
-            int.TryParse(IdRolNumericUpDown.Text, out id);
+            id = (int)IdRolNumericUpDown.Value;
 
             Limpiar();
             roles = RolesBLL.Buscar(id);
             if (roles != null)
-            {
-                LLenaCampos(roles);
-            }
+                LLenaCampos(id);
             else
-            {
                 MessageBox.Show("Usuario no encontrado");
-            }
         }
     }
 }

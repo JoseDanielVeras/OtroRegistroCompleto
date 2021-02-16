@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OtroRegistroCompleto.BLL
 {
@@ -27,6 +28,38 @@ namespace OtroRegistroCompleto.BLL
             finally
             {
                 contexto.Dispose();
+            }
+
+            return encontrado;
+        }
+
+        public static bool ExisteAlias(int id, string alias)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+
+            try
+            {
+                encontrado = contexto.Usuarios.Any(e => e.Alias == alias);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            if (encontrado)
+            {
+                Usuarios usuarios = Buscar(id);
+                if (usuarios == null)
+                    return true;
+
+                if (usuarios.Alias == alias)
+                    encontrado = false;
             }
 
             return encontrado;
@@ -88,10 +121,8 @@ namespace OtroRegistroCompleto.BLL
 
             try
             {
-
                 contexto.Usuarios.Add(usuarios);
                 paso = contexto.SaveChanges() > 0;
-
             }
             catch (Exception)
             {
@@ -135,7 +166,28 @@ namespace OtroRegistroCompleto.BLL
                 return Modificar(usuarios);
         }
 
-        private static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> criterio)
+        public static List<Usuarios> GetUsuarios()
+        {
+            List<Usuarios> lista = new List<Usuarios>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                lista = contexto.Usuarios.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
+
+        public static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> criterio)
         {
             List<Usuarios> lista = new List<Usuarios>();
             Contexto contexto = new Contexto();

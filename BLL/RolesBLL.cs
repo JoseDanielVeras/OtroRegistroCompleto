@@ -141,7 +141,6 @@ namespace OtroRegistroCompleto.BLL
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally

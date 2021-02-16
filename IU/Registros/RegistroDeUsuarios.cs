@@ -52,16 +52,24 @@ namespace OtroRegistroCompleto
             return usuarios;
         }
 
-        private void LlenarCampos(Usuarios usuarios)
+        private bool LlenarCampos(int id)
         {
-            IdNumericUpDown.Value = usuarios.UsuarioId;
-            NombresTextBox.Text = usuarios.Nombres;
-            AliasTextBox.Text = usuarios.Alias;
-            EmailTextBox.Text = usuarios.Email;
-            ConfirmarMaskedTextBox.Text = usuarios.Clave;
-            IngresoDateTimePicker.Value = usuarios.FechaIngreso;
-            ClaveMaskedTextBox.Text = usuarios.Clave;
-            ActivoCheckBox.Checked = usuarios.Activo;
+            Usuarios usuarios = UsuarioBLL.Buscar(id);
+
+            if (usuarios != null)
+            {
+                IdNumericUpDown.Value = usuarios.UsuarioId;
+                NombresTextBox.Text = usuarios.Nombres;
+                AliasTextBox.Text = usuarios.Alias;
+                EmailTextBox.Text = usuarios.Email;
+                ConfirmarMaskedTextBox.Text = usuarios.Clave;
+                IngresoDateTimePicker.Value = usuarios.FechaIngreso;
+                ClaveMaskedTextBox.Text = usuarios.Clave;
+                ActivoCheckBox.Checked = usuarios.Activo;
+                return true;
+            }
+            else
+                return false;
         }
 
         private bool ExisteEnLaBaseDeDatos()
@@ -140,7 +148,10 @@ namespace OtroRegistroCompleto
 
             //determinar si es guardar o modificar
             if (IdNumericUpDown.Value != 0)
+            {
                 paso = UsuarioBLL.Guardar(usuarios);
+                MessageBox.Show("Se ha guardado correctamente");
+            }
             else
             {
                 if (!ExisteEnLaBaseDeDatos())
@@ -150,14 +161,6 @@ namespace OtroRegistroCompleto
                 }
                 paso = UsuarioBLL.Modificar(usuarios);
             }
-
-            //Informar el resultado
-            if (paso)
-            {
-                MessageBox.Show("Se ha guardado correctamente");
-            }
-            else
-                MessageBox.Show("No fue posible guardar");
         }
 
         //Esta funcion elimina usiarios
@@ -181,7 +184,7 @@ namespace OtroRegistroCompleto
         {
             int id;
             Usuarios usuarios = new Usuarios();
-            int.TryParse(IdNumericUpDown.Text, out id);
+            id = (int)IdNumericUpDown.Value;
 
             Limpiar();
 
@@ -189,7 +192,7 @@ namespace OtroRegistroCompleto
 
             if (usuarios != null)
             {
-                LlenarCampos(usuarios);
+                LlenarCampos(Convert.ToInt32(id));
             }
             else
             {
@@ -197,10 +200,11 @@ namespace OtroRegistroCompleto
             }
         }
 
-        private void NivelLabel_Click(object sender, EventArgs e)
+        private void RegistroUsuariosForm_Load(object sender, EventArgs e)
         {
-            RegistroRoles roles = new RegistroRoles();
-            roles.Show();
+            RolComboBox.DataSource = RolesBLL.GetRoles();
+            RolComboBox.DisplayMember = "Descripcion";
+            RolComboBox.ValueMember = "RolId";
         }
     }
 }
